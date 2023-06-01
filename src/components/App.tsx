@@ -32,9 +32,9 @@ const tempData = [
 
 function App() {
   return (
-    <>
+    <div className="container">
       <Tree renderData={tempData} />
-    </>
+    </div>
   );
 }
 

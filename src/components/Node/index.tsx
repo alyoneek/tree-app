@@ -1,13 +1,13 @@
 const Node = ({ data }) => {
   return (
-    <>
-      <li style={{ background: "#b7b4b4", margin: "10px", padding: "10px" }}>{data.name} </li>
-      <ul style={{ marginLeft: "20px" }}>
+    <li>
+      <div className="nodeName">{data.name}</div>
+      <ul>
         {data.children.map((child) => (
-          <Node data={child} />
+          <Node key={child.id} data={child} />
         ))}
       </ul>
-    </>
+    </li>
   );
 };
 

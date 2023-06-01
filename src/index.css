@@ -4,6 +4,12 @@
   box-sizing: border-box;
 }
 
+html,
+body,
+#root {
+  height: 100%;
+}
+
 ul {
   padding: 0;
   margin: 0;
@@ -11,4 +17,48 @@ ul {
 
 li {
   list-style-type: none;
+}
+
+ul li::before {
+  content: "";
+  position: absolute;
+  top: -14px;
+  left: -20px;
+  border-left: 2px dashed #a2a5b5;
+  width: 1px;
+  height: 100%;
+}
+
+ul li::after {
+  content: "";
+  position: absolute;
+  border-top: 2px dashed #a2a5b5;
+  top: 54px;
+  left: -19px;
+  width: 39px;
+}
+
+ul li {
+  position: relative;
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+li {
+  padding-left: 20px;
+  padding-top: 30px;
+}
+
+.nodeName {
+  background-color: rgb(222, 220, 220);
+  padding: 10px;
 }
