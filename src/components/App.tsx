@@ -1,24 +1,39 @@
-import { useState } from "react";
-import viteLogo from "/vite.svg";
+import Tree from "@components/Tree";
+
+const tempData = [
+  {
+    id: 1,
+    name: "First",
+    children: [
+      {
+        id: 2,
+        name: "Second",
+        children: [
+          {
+            id: 3,
+            name: "Third",
+            children: [],
+          },
+        ],
+      },
+      {
+        id: 4,
+        name: "Fourth",
+        children: [],
+      },
+    ],
+  },
+  {
+    id: 5,
+    name: "Fifth",
+    children: [],
+  },
+];
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
+      <Tree renderData={tempData} />
     </>
   );
 }
