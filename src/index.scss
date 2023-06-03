@@ -1,7 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Lexend, Arial, sans-serif;
 }
 
 html,
@@ -47,10 +50,26 @@ ul li {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  & > ul {
+    width: 30%;
+  }
 }
 
 ul {
   padding-left: 20px;
+
+  &.hidden {
+    max-height: 0;
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+
+  &.visible {
+    max-height: 325px;
+    opacity: 1;
+    transition: all 0.3s ease;
+  }
 }
 
 li {
@@ -58,7 +77,28 @@ li {
   padding-top: 30px;
 }
 
-.nodeName {
-  background-color: rgb(222, 220, 220);
-  padding: 10px;
+.container > ul > li::after {
+  width: 0;
+}
+
+.container > ul > li::before {
+  height: 0;
+}
+
+@keyframes change-height-down {
+  0% {
+    max-height: 9999px;
+  }
+  100% {
+    max-height: 0px;
+  }
+}
+
+@keyframes change-height-up {
+  0% {
+    max-height: 0px;
+  }
+  100% {
+    max-height: 9999px;
+  }
 }

@@ -1,0 +1,36 @@
+@import "@styles/_sizes.scss";
+@import "@styles/_colors.scss";
+
+.card {
+  position: relative;
+  border-radius: $border-radius;
+  background-color: $white;
+  padding: 20px 10px;
+  box-shadow: 0px 4px 8px $light-gray;
+  border: 1px solid $light-gray;
+  width: 100%;
+  cursor: pointer;
+
+  .actions {
+    position: absolute;
+    top: -15px;
+    display: flex;
+    gap: 10px;
+    z-index: 1;
+
+    transform: translateY(30px);
+    transition: 0.5s;
+    opacity: 0;
+  }
+
+  &:hover {
+    border: 1px solid #d6d6d6;
+    box-shadow: 0px 0px 999px 999px rgba(255, 255, 255, 0.5);
+    z-index: 500;
+
+    .actions {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+  }
+}

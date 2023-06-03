@@ -5,6 +5,8 @@ export default defineConfig({
   resolve: {
     alias: {
       "@components": "/src/components",
+      "@ui": "/src/ui",
+      "@styles": "/src/styles",
     },
   },
   plugins: [react()],
