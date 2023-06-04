@@ -1,17 +1,23 @@
-import Card from "@ui/Card";
-import { useState } from "react";
+import { FC, useState } from "react";
 
-const Node = ({ data }) => {
-  const [hidden, setHidden] = useState(false);
+import Card from "@ui/Card";
+
+interface NodeProps {}
+
+const Node: FC<NodeProps> = ({ data }) => {
+  const [open, setOpen] = useState(true);
 
   const toggleChildren = () => {
-    setHidden(!hidden);
+    setOpen(!open);
   };
 
   return (
     <li>
-      <Card onExpand={toggleChildren}>{data.name}</Card>
-      <ul className={hidden ? "hidden" : "visible"}>
+      <Card onExpand={data.children.length ? toggleChildren : undefined} open={open}>
+        {data.name}
+      </Card>
+
+      <ul className={open ? "visible" : "hidden"}>
         {data.children.map((child) => (
           <Node key={child.id} data={child} />
         ))}
