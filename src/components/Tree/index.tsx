@@ -1,10 +1,16 @@
 import Node from "@components/Node";
+import { INode } from "@store/tree/treeSlice";
+import { FC } from "react";
 
-const Tree = ({ renderData }) => {
+interface TreeProps {
+  renderData: INode[];
+}
+
+const Tree: FC<TreeProps> = ({ renderData }) => {
   return (
     <ul>
       {renderData.map((item) => (
-        <Node data={item} />
+        <Node key={item.id} data={item} />
       ))}
     </ul>
   );

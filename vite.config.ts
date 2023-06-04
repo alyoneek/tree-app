@@ -10,6 +10,7 @@ export default defineConfig({
       "@components": "/src/components",
       "@ui": "/src/ui",
       "@styles": "/src/styles",
+      "@store": "/src/store",
     },
   },
   plugins: [react(), svgr()],
