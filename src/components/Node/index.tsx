@@ -1,6 +1,8 @@
 import { FC, useState } from "react";
 
-import { useAppDispatch } from "@/store";
+import { useAppDispatch, useAppSelector } from "@/store";
+import { getNode } from "@/store/tree/treeSelectors";
+import AddNodeForm from "@components/AddNodeForm";
 import EditNodeForm from "@components/EditNodeForm";
 import { INode, treeActions } from "@store/tree/treeSlice";
 import Card from "@ui/Card";
@@ -14,6 +16,7 @@ const Node: FC<NodeProps> = ({ data }) => {
   const [edit, setEdit] = useState(false);
 
   const dispatch = useAppDispatch();
+  const addToNode = useAppSelector(getNode);
 
   const toggleChildren = () => {
     setOpen(!open);
@@ -21,6 +24,10 @@ const Node: FC<NodeProps> = ({ data }) => {
 
   const cancelEditMode = () => {
     setEdit(false);
+  };
+
+  const handleAdd = () => {
+    dispatch(treeActions.chooseNode(data.id));
   };
 
   const handleEdit = () => {
@@ -36,6 +43,7 @@ const Node: FC<NodeProps> = ({ data }) => {
       <Card
         onExpand={data.children.length ? toggleChildren : undefined}
         open={open}
+        handleAdd={handleAdd}
         handleEdit={handleEdit}
         handleDelete={handleDelete}>
         {!edit ? (
@@ -49,6 +57,13 @@ const Node: FC<NodeProps> = ({ data }) => {
         {data.children.map((child) => (
           <Node key={child.id} data={child} />
         ))}
+        {addToNode === data.id && (
+          <li>
+            <Card>
+              <AddNodeForm />
+            </Card>
+          </li>
+        )}
       </ul>
     </li>
   );

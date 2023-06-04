@@ -21,8 +21,11 @@ const EditNodeForm: FC<EditNodeFormProps> = ({ nodeData, handleSave, handleCance
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    dispatch(treeActions.editNode({ id: nodeData.id, name: inputValue }));
-    handleSave && handleSave();
+
+    if (inputValue) {
+      dispatch(treeActions.editNode({ id: nodeData.id, name: inputValue }));
+      handleSave && handleSave();
+    }
   };
 
   return (

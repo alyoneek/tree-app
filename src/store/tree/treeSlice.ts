@@ -9,10 +9,12 @@ export interface INode {
 
 interface ITreeState {
   nodes: INode[];
+  choosenNode: number | null;
 }
 
 const initialState: ITreeState = {
   nodes: [],
+  choosenNode: null,
 };
 
 export const treeSlice = createSlice({
@@ -38,6 +40,9 @@ export const treeSlice = createSlice({
     },
     clearTree: (state) => {
       state.nodes = [];
+    },
+    chooseNode: (state, action: PayloadAction<number>) => {
+      state.choosenNode = action.payload;
     },
   },
 });

@@ -1,0 +1,25 @@
+@import "@styles/_colors.scss";
+@import "@styles/_sizes.scss";
+
+.button {
+  cursor: pointer;
+  font-size: 20px;
+  padding: 16px;
+  border-radius: 16px;
+  transition: all 0.3s;
+
+  &.purple {
+    background-color: #5c17e5;
+    color: $white;
+
+    &:hover {
+      background-color: #360090;
+    }
+  }
+
+  &.none {
+    &:hover {
+      background-color: rgba(203, 212, 225, 0.4);
+    }
+  }
+}
