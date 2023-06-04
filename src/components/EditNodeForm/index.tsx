@@ -27,7 +27,11 @@ const EditNodeForm: FC<EditNodeFormProps> = ({ nodeData, handleSave, handleCance
 
   return (
     <form className={styles.form} onSubmit={(e) => handleSubmit(e)}>
-      <Input value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
+      <Input
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
+        className={styles.input}
+      />
       <div>
         <IconButton type="submit" Icon={CheckLogo} />
         <IconButton Icon={CancelLogo} onClick={handleCancel} />

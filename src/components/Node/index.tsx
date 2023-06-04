@@ -1,7 +1,8 @@
 import { FC, useState } from "react";
 
+import { useAppDispatch } from "@/store";
 import EditNodeForm from "@components/EditNodeForm";
-import { INode } from "@store/tree/treeSlice";
+import { INode, treeActions } from "@store/tree/treeSlice";
 import Card from "@ui/Card";
 
 interface NodeProps {
@@ -12,6 +13,8 @@ const Node: FC<NodeProps> = ({ data }) => {
   const [open, setOpen] = useState(true);
   const [edit, setEdit] = useState(false);
 
+  const dispatch = useAppDispatch();
+
   const toggleChildren = () => {
     setOpen(!open);
   };
@@ -20,12 +23,21 @@ const Node: FC<NodeProps> = ({ data }) => {
     setEdit(false);
   };
 
+  const handleEdit = () => {
+    setEdit(true);
+  };
+
+  const handleDelete = () => {
+    dispatch(treeActions.deleteNode(data.id));
+  };
+
   return (
     <li>
       <Card
         onExpand={data.children.length ? toggleChildren : undefined}
         open={open}
-        handleEdit={() => setEdit(true)}>
+        handleEdit={handleEdit}
+        handleDelete={handleDelete}>
         {!edit ? (
           data.name
         ) : (

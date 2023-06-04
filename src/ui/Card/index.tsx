@@ -13,17 +13,25 @@ interface CardProps {
   children?: ReactNode;
   open?: boolean;
   handleEdit?: () => void;
+  handleDelete?: () => void;
   onExpand?: () => void;
 }
 
-const Card: FC<CardProps> = ({ className = "", onExpand, children, open = true, handleEdit }) => {
+const Card: FC<CardProps> = ({
+  className = "",
+  onExpand,
+  children,
+  open = true,
+  handleEdit,
+  handleDelete,
+}) => {
   return (
     <div className={`${styles.card} ${className}`}>
       <div className={styles.content}>{children}</div>
       <div className={styles.actions}>
         <IconButton Icon={PlusLogo} />
         <IconButton Icon={PencilLogo} onClick={handleEdit} />
-        <IconButton Icon={BinLogo} />
+        <IconButton Icon={BinLogo} onClick={handleDelete} />
       </div>
       {onExpand && (
         <IconButton className={open ? styles.iconOpen : ""} onClick={onExpand} Icon={ArrowLogo} />

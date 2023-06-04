@@ -33,12 +33,12 @@ export const treeSlice = createSlice({
         node.name = action.payload.name;
       }
     },
-    // deleteNode: (state, action: PayloadAction<number>) => {
-    //   state.value += action.payload;
-    // },
-    // clearTree: (state, action: PayloadAction<number>) => {
-    //   state.value += action.payload;
-    // },
+    deleteNode: (state, action: PayloadAction<number>) => {
+      state.nodes = state.nodes.filter((node) => node.id !== action.payload);
+    },
+    clearTree: (state) => {
+      state.nodes = [];
+    },
   },
 });
 

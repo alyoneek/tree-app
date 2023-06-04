@@ -7,6 +7,7 @@ import Input from "@ui/Input";
 
 import { useAppDispatch } from "@/store";
 import { treeActions } from "@/store/tree/treeSlice";
+
 import styles from "./addNodeForm.module.scss";
 
 const AddNodeForm = () => {
@@ -23,6 +24,10 @@ const AddNodeForm = () => {
     setInputValue("");
   };
 
+  const handleReset = () => {
+    dispatch(treeActions.clearTree());
+  };
+
   return (
     <form className={styles.form} onSubmit={(e) => handleSubmit(e)}>
       <Input
@@ -32,7 +37,7 @@ const AddNodeForm = () => {
       />
       <div>
         <IconButton type="submit" Icon={PlusLogo} className={styles.button} />
-        <IconButton Icon={BinLogo} className={styles.button} />
+        <IconButton Icon={BinLogo} className={styles.button} onClick={handleReset} />
       </div>
     </form>
   );

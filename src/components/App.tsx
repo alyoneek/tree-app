@@ -38,6 +38,7 @@ function App() {
 
   return (
     <div className="container">
+      <h1>Tree</h1>
       <AddNodeForm />
       <Tree renderData={data} />
     </div>
