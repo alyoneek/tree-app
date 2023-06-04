@@ -1,0 +1,11 @@
+.form {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  .button {
+    width: 31px;
+    height: 31px;
+    padding: 3px;
+  }
+}

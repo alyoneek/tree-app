@@ -1,7 +1,11 @@
 import { FC, ReactNode } from "react";
 
 import { ReactComponent as ArrowLogo } from "@assets/icons/arrow.svg";
-import IconButton from "@ui/IconButton.module.scss";
+import { ReactComponent as BinLogo } from "@assets/icons/bin.svg";
+import { ReactComponent as PencilLogo } from "@assets/icons/pencil.svg";
+import { ReactComponent as PlusLogo } from "@assets/icons/plus.svg";
+import IconButton from "@ui/IconButton";
+
 import styles from "./card.module.scss";
 
 interface CardProps {
@@ -16,9 +20,9 @@ const Card: FC<CardProps> = ({ className = "", onExpand, children, open = true }
     <div className={`${styles.card} ${className}`}>
       <div className={styles.content}>{children}</div>
       <div className={styles.actions}>
-        <button>delete</button>
-        <button>edit</button>
-        <button>add</button>
+        <IconButton Icon={PlusLogo} />
+        <IconButton Icon={PencilLogo} />
+        <IconButton Icon={BinLogo} />
       </div>
       {onExpand && (
         <IconButton className={open ? styles.iconOpen : ""} onClick={onExpand} Icon={ArrowLogo} />
