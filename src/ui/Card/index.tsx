@@ -7,7 +7,7 @@ interface CardProps {
   children?: ReactNode;
 }
 
-const Card: FC<CardProps> = ({ className, onExpand, children }) => {
+const Card: FC<CardProps> = ({ className = "", onExpand, children }) => {
   return (
     <div className={`${styles.card} ${className}`} onClick={onExpand}>
       <div className={styles.content}>{children}</div>

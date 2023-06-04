@@ -1,4 +1,5 @@
 import Tree from "@components/Tree";
+import AddNodeForm from "./AddNodeForm";
 
 const tempData = [
   {
@@ -33,6 +34,7 @@ const tempData = [
 function App() {
   return (
     <div className="container">
+      <AddNodeForm />
       <Tree renderData={tempData} />
     </div>
   );

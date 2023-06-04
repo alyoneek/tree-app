@@ -1,0 +1,18 @@
+@import "@styles/_colors.scss";
+
+.input {
+  border-width: 0px 0px 1px;
+  border-bottom: 1px solid $light-gray;
+  padding: 4px 10px;
+  background: transparent;
+  font-size: 18px;
+
+  &:focus {
+    border-color: $sand-gray;
+    outline: none;
+  }
+
+  &::placeholder {
+    opacity: 0.3;
+  }
+}

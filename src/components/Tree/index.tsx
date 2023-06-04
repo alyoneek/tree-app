@@ -7,16 +7,6 @@ const Tree = ({ renderData }) => {
         <Node data={item} />
       ))}
     </ul>
-
-    // <>
-    //   <p>Hover This</p>
-    //   <ul>
-    //     <li>Coffee</li>
-    //     <li>Tea</li>
-    //     <li>Milk</li>
-    //   </ul>
-    //   <a>sfdf</a>
-    // </>
   );
 };
 
