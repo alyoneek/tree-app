@@ -7,6 +7,8 @@ import EditNodeForm from "@components/EditNodeForm";
 import { INode, treeActions } from "@store/tree/treeSlice";
 import Card from "@ui/Card";
 
+import styles from "./node.module.scss";
+
 interface NodeProps {
   data: INode;
 }
@@ -57,9 +59,10 @@ const Node: FC<NodeProps> = ({ data }) => {
         {data.children.map((child) => (
           <Node key={child.id} data={child} />
         ))}
+
         {addToNode === data.id && (
           <li>
-            <Card>
+            <Card className={styles.notAdded}>
               <AddNodeForm />
             </Card>
           </li>

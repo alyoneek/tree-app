@@ -1,1 +1,15 @@
+.notAdded {
+  animation: blink 1s infinite alternate;
 
+  &:hover,
+  &:focus-within {
+    animation: none;
+  }
+}
+
+@keyframes blink {
+  100% {
+    box-shadow: 0 0 2px #fff, 0 0 3px #fff, 0 0 4px #fff, 0 0 5px #d4d4d4, 0 0 10px #d4d4d4,
+      0 0 20px #d2d2d2;
+  }
+}
