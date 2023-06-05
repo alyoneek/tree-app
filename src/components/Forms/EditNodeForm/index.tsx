@@ -29,7 +29,7 @@ const EditNodeForm: FC<EditNodeFormProps> = ({ nodeData, handleSave, handleCance
   };
 
   return (
-    <form className={styles.form} onSubmit={(e) => handleSubmit(e)}>
+    <form className={styles.form} onSubmit={handleSubmit}>
       <Input
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}

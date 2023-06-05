@@ -36,7 +36,7 @@ const AddNodeMainForm = () => {
 
   return (
     <>
-      <form className={styles.form} onSubmit={(e) => handleSubmit(e)}>
+      <form className={styles.form} onSubmit={handleSubmit}>
         <Input
           placeholder="Add a node"
           value={inputValue}

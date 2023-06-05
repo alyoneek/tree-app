@@ -1,9 +1,9 @@
 import { FC, useState } from "react";
 
-import AddNodeForm from "@/components/Forms/AddNodeMainForm";
-import EditNodeForm from "@/components/Forms/EditNodeForm";
 import { useAppDispatch, useAppSelector } from "@/store";
 import { getNode } from "@/store/tree/treeSelectors";
+import AddNodeForm from "@components/Forms/AddNodeForm";
+import EditNodeForm from "@components/Forms/EditNodeForm";
 import { INode, treeActions } from "@store/tree/treeSlice";
 import Card from "@ui/Card";
 

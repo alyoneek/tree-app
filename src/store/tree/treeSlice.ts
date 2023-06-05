@@ -41,7 +41,7 @@ export const treeSlice = createSlice({
     clearTree: (state) => {
       state.nodes = [];
     },
-    chooseNode: (state, action: PayloadAction<number>) => {
+    chooseNode: (state, action: PayloadAction<number | null>) => {
       state.choosenNode = action.payload;
     },
   },
