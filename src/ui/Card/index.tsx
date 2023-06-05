@@ -10,21 +10,37 @@ import Modal from "@ui/Modal";
 import useModal from "@/hooks/useModal";
 import styles from "./card.module.scss";
 
-interface CardProps {
+type CummonCardProps = {
   className?: string;
   children?: ReactNode;
   open?: boolean;
-  handleAdd?: () => void;
-  handleEdit?: () => void;
-  handleDelete?: () => void;
   onExpand?: () => void;
-}
+};
+
+type EditableCardProps = CummonCardProps & {
+  editable: boolean;
+  handleAdd: () => void;
+  handleEdit: () => void;
+  handleDelete: () => void;
+  default?: never;
+};
+
+type DefaultCardProps = CummonCardProps & {
+  default: boolean;
+  editable?: never;
+  handleAdd?: never;
+  handleEdit?: never;
+  handleDelete?: never;
+};
+
+type CardProps = EditableCardProps | DefaultCardProps;
 
 const Card: FC<CardProps> = ({
   className = "",
-  onExpand,
   children,
   open = true,
+  editable = false,
+  onExpand,
   handleAdd,
   handleEdit,
   handleDelete,
@@ -39,11 +55,13 @@ const Card: FC<CardProps> = ({
   return (
     <div className={`${styles.card} ${className}`}>
       <div className={styles.content}>{children}</div>
-      <div className={styles.actions}>
-        <IconButton Icon={PlusLogo} onClick={handleAdd} />
-        <IconButton Icon={PencilLogo} onClick={handleEdit} />
-        <IconButton Icon={BinLogo} onClick={showModal} />
-      </div>
+      {editable && (
+        <div className={styles.actions}>
+          <IconButton Icon={PlusLogo} onClick={handleAdd} />
+          <IconButton Icon={PencilLogo} onClick={handleEdit} />
+          <IconButton Icon={BinLogo} onClick={showModal} />
+        </div>
+      )}
 
       {onExpand && (
         <IconButton className={open ? styles.iconOpen : ""} onClick={onExpand} Icon={ArrowLogo} />

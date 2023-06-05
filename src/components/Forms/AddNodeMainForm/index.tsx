@@ -9,9 +9,9 @@ import IconButton from "@ui/IconButton";
 import Input from "@ui/Input";
 import Modal from "@ui/Modal";
 
-import styles from "./addNodeForm.module.scss";
+import styles from "./addNodeMainForm.module.scss";
 
-const AddNodeForm = () => {
+const AddNodeMainForm = () => {
   const { modalShown, showModal, hideModal } = useModal();
   const [inputValue, setInputValue] = useState("");
   const dispatch = useAppDispatch();
@@ -61,4 +61,4 @@ const AddNodeForm = () => {
   );
 };
 
-export default AddNodeForm;
+export default AddNodeMainForm;

@@ -1,9 +1,9 @@
 import { FC, useState } from "react";
 
+import AddNodeForm from "@/components/Forms/AddNodeMainForm";
+import EditNodeForm from "@/components/Forms/EditNodeForm";
 import { useAppDispatch, useAppSelector } from "@/store";
 import { getNode } from "@/store/tree/treeSelectors";
-import AddNodeForm from "@components/AddNodeForm";
-import EditNodeForm from "@components/EditNodeForm";
 import { INode, treeActions } from "@store/tree/treeSlice";
 import Card from "@ui/Card";
 
@@ -43,6 +43,7 @@ const Node: FC<NodeProps> = ({ data }) => {
   return (
     <li>
       <Card
+        editable
         onExpand={data.children.length ? toggleChildren : undefined}
         open={open}
         handleAdd={handleAdd}
@@ -62,7 +63,7 @@ const Node: FC<NodeProps> = ({ data }) => {
 
         {addToNode === data.id && (
           <li>
-            <Card className={styles.notAdded}>
+            <Card default className={styles.notAdded}>
               <AddNodeForm />
             </Card>
           </li>
