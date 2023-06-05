@@ -18,7 +18,7 @@ const Node: FC<NodeProps> = ({ data }) => {
   const [edit, setEdit] = useState(false);
 
   const dispatch = useAppDispatch();
-  const addToNode = useAppSelector(getNode);
+  const addToNodeId = useAppSelector(getNode);
 
   const toggleChildren = () => {
     setOpen(!open);
@@ -61,10 +61,10 @@ const Node: FC<NodeProps> = ({ data }) => {
           <Node key={child.id} data={child} />
         ))}
 
-        {addToNode === data.id && (
+        {addToNodeId === data.id && (
           <li>
             <Card default className={styles.notAdded}>
-              <AddNodeForm />
+              <AddNodeForm nodeId={addToNodeId} />
             </Card>
           </li>
         )}

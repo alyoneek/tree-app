@@ -9,7 +9,11 @@ import Input from "@ui/Input";
 
 import styles from "./addNodeForm.module.scss";
 
-const AddNodeForm: FC = () => {
+interface AddNodeFormProps {
+  nodeId: number;
+}
+
+const AddNodeForm: FC<AddNodeFormProps> = ({ nodeId }) => {
   const [inputValue, setInputValue] = useState("");
   const dispatch = useAppDispatch();
 
@@ -17,7 +21,8 @@ const AddNodeForm: FC = () => {
     e.preventDefault();
 
     if (inputValue) {
-      //   dispatch(treeActions.editNode({ id: nodeData.id, name: inputValue }));
+      dispatch(treeActions.addNode({ id: nodeId, name: inputValue }));
+      handleCancel();
     }
   };
 

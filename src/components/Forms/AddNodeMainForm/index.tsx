@@ -20,7 +20,7 @@ const AddNodeMainForm = () => {
     e.preventDefault();
 
     if (inputValue) {
-      dispatch(treeActions.addNode(inputValue));
+      dispatch(treeActions.addNode({ id: 0, name: inputValue }));
       resetForm();
     }
   };

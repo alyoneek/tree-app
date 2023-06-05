@@ -53,19 +53,21 @@ const Card: FC<CardProps> = ({
   };
 
   return (
-    <div className={`${styles.card} ${className}`}>
-      <div className={styles.content}>{children}</div>
-      {editable && (
-        <div className={styles.actions}>
-          <IconButton Icon={PlusLogo} onClick={handleAdd} />
-          <IconButton Icon={PencilLogo} onClick={handleEdit} />
-          <IconButton Icon={BinLogo} onClick={showModal} />
-        </div>
-      )}
+    <>
+      <div className={`${styles.card} ${className}`}>
+        <div className={styles.content}>{children}</div>
+        {editable && (
+          <div className={styles.actions}>
+            <IconButton Icon={PlusLogo} onClick={handleAdd} />
+            <IconButton Icon={PencilLogo} onClick={handleEdit} />
+            <IconButton Icon={BinLogo} onClick={showModal} />
+          </div>
+        )}
 
-      {onExpand && (
-        <IconButton className={open ? styles.iconOpen : ""} onClick={onExpand} Icon={ArrowLogo} />
-      )}
+        {onExpand && (
+          <IconButton className={open ? styles.iconOpen : ""} onClick={onExpand} Icon={ArrowLogo} />
+        )}
+      </div>
 
       <Modal
         title="Are you sure?"
@@ -76,7 +78,7 @@ const Card: FC<CardProps> = ({
         onOk={onDelete}
         onCancel={hideModal}
       />
-    </div>
+    </>
   );
 };
 
