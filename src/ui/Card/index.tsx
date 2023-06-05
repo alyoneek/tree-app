@@ -56,6 +56,7 @@ const Card: FC<CardProps> = ({
     <>
       <div className={`${styles.card} ${className}`}>
         <div className={styles.content}>{children}</div>
+
         {editable && (
           <div className={styles.actions}>
             <IconButton Icon={PlusLogo} onClick={handleAdd} />

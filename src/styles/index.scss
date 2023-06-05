@@ -36,13 +36,17 @@ ul li::after {
   content: "";
   position: absolute;
   border-top: 2px dashed #a2a5b5;
-  top: 54px;
+  top: 63px;
   left: -19px;
   width: 39px;
 }
 
 ul li {
   position: relative;
+}
+
+ul li:last-child::before {
+  height: 78px;
 }
 
 .container {
