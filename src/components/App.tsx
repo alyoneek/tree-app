@@ -3,6 +3,8 @@ import { useAppSelector } from "@/store";
 import Tree from "@components/Tree";
 import { getNodes } from "@store/tree/treeSelectors";
 
+import "@styles/app.scss";
+
 function App() {
   const data = useAppSelector(getNodes);
 

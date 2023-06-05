@@ -55,7 +55,7 @@ const Card: FC<CardProps> = ({
   return (
     <>
       <div className={`${styles.card} ${className}`}>
-        <div className={styles.content}>{children}</div>
+        {children}
 
         {editable && (
           <div className={styles.actions}>

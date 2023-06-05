@@ -1,6 +1,7 @@
+import { FC } from "react";
+
 import Node from "@components/Node";
 import { INode } from "@store/tree/treeSlice";
-import { FC } from "react";
 
 interface TreeProps {
   renderData: INode[];

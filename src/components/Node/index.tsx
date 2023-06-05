@@ -50,7 +50,7 @@ const Node: FC<NodeProps> = ({ data }) => {
         handleEdit={handleEdit}
         handleDelete={handleDelete}>
         {!edit ? (
-          data.name
+          <span className={styles.content}>{data.name}</span>
         ) : (
           <EditNodeForm nodeData={data} handleSave={cancelEditMode} handleCancel={cancelEditMode} />
         )}
